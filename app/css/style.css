@@ -1,0 +1,219 @@
+body {
+	padding-top: 0px !important;
+}
+#datebox {
+	margin-bottom: 1em;
+}
+
+.daytitle {
+	text-align: center;
+}
+
+#grpbtn {
+  margin-bottom: 1em;
+
+}
+
+#groupselector {
+  /*font-size: 90;*/
+}
+#groupselector  .list-group-item {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 90%;
+}
+
+#weeknow .week {
+	font-size: 200%;
+	font-weight: bold;
+}
+#weeknow .days {
+	font-size: 120%;
+	margin-bottom: 1em;
+}
+tbody#mainview td.a {
+	padding: 0px;
+	width: 8px;
+
+}
+tbody#mainview {
+	cursor: pointer; 	
+}
+
+
+tbody#mainview td.a.odd {
+	/*border-right-width: 1px ! important;*/
+
+	border-right: 1px;
+}
+/* Avail means no appointsments registered */
+tbody#mainview td.a.Avail {
+	background-color: #090;
+	border-right-color: #070;
+}
+tbody#mainview td.a.Avail.Lunch {
+	background-color: #008700;
+	border-right-color: #040;
+}
+tbody#mainview td.a.Avail.Past {
+	background-color: #777;
+}
+
+/* Busy */
+tbody#mainview td.a.Busy {
+	background-color: #C84640;
+	border-right-color: #ad0b14;
+}
+tbody#mainview td.a.Busy.Past {
+	background-color: #884640;
+}
+/* Tentative */
+tbody#mainview td.a.Tentative {
+	background-color: #f58220;
+}
+/* Tentative */
+tbody#mainview td.a.OOF {
+	background-color: #A50FFB;
+}
+tbody#mainview td.a.OOF.Past {
+	background-color: #6D3B91;
+}
+/* Free */
+tbody#mainview td.a.Free {
+	background-color: #2B72B7;
+}
+tbody#mainview td.a.Free.Past {
+	background-color: #5F86B7;
+}
+
+/* No busy type found */
+tbody#mainview td.a.Error {
+	background-color: #222;
+}
+
+/* This is a special type of 'common' special days. Like christmas, easter etc. */
+tbody#mainview td.a.Red {
+	background-color: #953;
+}
+
+
+
+@media only screen  and (min-device-width : 320px)  and (max-device-width : 480px) {
+  td.sep {
+    width: 2px;
+  }
+  td.user {
+    text-align: right;
+    min-width: 70px;
+    font-size: 90%;
+    padding: 3px 0px;
+  }
+  td.daytitle {
+    font-size: 65% ! important;
+  }
+}
+
+
+
+
+
+/* Show "Left" drawer for the "Right" drawer in the demo */
+.snapjs-right .snap-drawer-left {
+    display: block;
+    right: 0;
+    left: auto;
+}
+
+/* Hide the actual "Right" drawer in the demo */
+.snapjs-right .snap-drawer-right {
+    display: none;
+}
+
+
+.allContent {
+	position: absolute;
+}
+.allDrawers {
+	position: absolute;	
+}
+
+
+
+td.user {
+  text-align: right;
+  min-width: 130px;
+}
+
+td.sep {
+
+}
+
+.allContent {
+  margin: 0;
+  padding: 0;
+/*  width: 100%;
+  height: 100%;*/
+  overflow: hidden;
+}
+
+.snap-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 2;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+
+
+.snap-drawer {
+	margin-left: -266px;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  width: 265px;
+  height: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: width 0.3s ease;
+     -moz-transition: width 0.3s ease;
+      -ms-transition: width 0.3s ease;
+       -o-transition: width 0.3s ease;
+          transition: width 0.3s ease;
+}
+
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+
+.snap-drawer-right {
+  right: 0;
+  z-index: 1;
+}
+
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+  display: none;
+}
+
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+  width: 100%;
+}
+
+
+
+

@@ -1,0 +1,50 @@
+{
+  "name": "exchange-overview",
+  "description": "Exchange Calendar Flight View",
+  "version": "0.1.0",
+  "keywords": [
+    "calendars",
+    "exchange"
+  ],
+  "homepage": "http://uninett.no",
+  "author": "Andreas Åkre Solberg",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreassolberg/exchange-overview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreassolberg/exchange-overview/issues"
+  },
+  "devDependencies": {
+    "bower": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-jekyll": "*"
+  },
+  "engines": {
+    "node": "~0.10.1"
+  },
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "jspm": {
+    "main": "js/bootstrap",
+    "directories": {
+      "example": "examples",
+      "lib": "dist"
+    },
+    "shim": {
+      "js/bootstrap": {
+        "imports": "jquery",
+        "exports": "$"
+      }
+    },
+    "buildConfig": {
+      "uglify": true
+    }
+  }
+}

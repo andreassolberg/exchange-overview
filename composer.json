@@ -1,0 +1,22 @@
+{
+	"name": "andreassolberg/exchange-overview",
+	"description": "Exchange overview.",
+	"type": "project",
+	"keywords": [ "calendar" ],
+	"homepage": "http://uninett.no",
+	"license": "LGPL-2.1",
+	"authors": [
+		{
+			"name": "Andreas Åkre Solberg",
+			"email": "andreas.solberg@uninett.no"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"nategood/commando": "*",
+		"monolog/monolog": "~1.11.0"
+	},
+	"require-dev": {
+		"codeclimate/php-test-reporter": "dev-master"
+	}
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="UNINETT sin interne kalenderoversikt">
+	<meta name="author" content="Andreas Åkre Solberg">
+
+	<title>Kalender – UNINETT</title>
+
+
+	<!-- Mobile setup -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="Kalender">
+
+	<link rel="apple-touch-icon" href="./img/uninett-pil.png">
+	<link rel="shortcut icon" href="./img/uninett-pil.png">
+
+	<!-- Style sheets -->
+	<link href="./bower_components/uninett-theme/css/uninett.css" rel="stylesheet">
+	<link href="./bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div id="allDrawers" class="allDrawers snap-drawer snap-drawer-left">
+		<div id="groupselector" class="list-group"></div>
+	</div>
+
+
+	<div id="allContent" class="allContent container">
+		<div id="mainOuterRow" class="row">
+
+			<div id="mainOuter" class="col-sm-12">
+
+				<div id="datebox">
+					
+					<div class="row gutter">
+		
+						<div id="grpbtn" class="col-sm-3">
+							<button class="btn btn-primary btn-sm" id="sidebarToggle">
+							<span class="glyphicon glyphicon-list"></span> &nbsp;
+								Velg gruppe</button>
+						</div>
+
+						<div id="weekdisplay" class="col-sm-6">
+
+							<button class="btn btn-default btn-sm prevWeek" type="submit">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							Forrige</button>
+							<button class="btn btn-default btn-sm thisWeek" type="submit">
+								Denne uken</button>
+							<button class="btn btn-default btn-sm nextWeek" type="submit">Neste
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</button>
+
+						</div>
+
+						<div class="col-sm-3" id="weeknow"></div>
+					</div>
+
+				</div>
+
+				<table class="table table-condensed ">
+					<thead id="mainheader"></thead>
+					<tbody id="mainview"></tbody>
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="./bower_components/bootstrap/js/tooltip.js"></script>
+	<script src="./bower_components/bootstrap/js/popover.js"></script>
+	<script src="./bower_components/snapjs/snap.min.js"></script>
+	<script type="text/javascript" data-main="js/main" src="./bower_components/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require.config({
+		    paths: {
+		    	"bower": "../bower_components",
+		        "moment": "../bower_components/momentjs/moment",
+		        "momentl": "../bower_components/momentjs/locale/nb"
+		    }
+		});
+	</script>
+</body>
+</html>

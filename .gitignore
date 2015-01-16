@@ -1,0 +1,12 @@
+node_modules
+vendor
+composer.lock
+data
+etc/config.json
+etc/groups.json
+etc/resources.json
+etc/users.json
+etc/groups.test.json
+etc/users.test.json
+php-ews
+app/bower_components
