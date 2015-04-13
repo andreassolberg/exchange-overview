@@ -19,6 +19,43 @@ $eo = new EOverview();
 // exit;
 
 
+function getEvents($response) {
+	$x = $response->FreeBusyResponseArray->FreeBusyResponse->FreeBusyView;
+	$result = [];
+
+	if (empty($x->CalendarEventArray)) {
+		return $result;
+	}
+
+	if ($x->CalendarEventArray->CalendarEvent) {
+		foreach($x->CalendarEventArray->CalendarEvent AS $event) {
+
+			if  (empty($event->CalendarEventDetails)) {
+				continue;
+			}
+
+			if  (empty($event->CalendarEventDetails->Subject)) {
+				continue;
+			}
+
+			$result[] = $event;
+
+			if ($event->CalendarEventDetails && $event->CalendarEventDetails->Subject) {
+
+
+
+				if (strpos(strtolower($event->CalendarEventDetails->Subject), 'ferie') !== false) {
+					// $result[] = $event;
+				}
+
+			}
+
+		}
+	}
+	return $result;
+}
+
+
 
 
 foreach($users AS $item) {
@@ -31,10 +68,13 @@ foreach($users AS $item) {
 		continue;
 	}
 
-	$data = $response->FreeBusyResponseArray->FreeBusyResponse->FreeBusyView;
-	$filename = $datadir . $item['mail'] . '.json';
-	file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
+	// $data = $response->FreeBusyResponseArray->FreeBusyResponse->FreeBusyView;
+	$events = getEvents($response);
+	// print_r($resarr); exit;
 
+
+	$filename = $datadir . $item['mail'] . '.json';
+	file_put_contents($filename, json_encode($events, JSON_PRETTY_PRINT));
 }
 
 
@@ -48,9 +88,9 @@ foreach($resources AS $item) {
 		continue;
 	}
 
-	$data = $response->FreeBusyResponseArray->FreeBusyResponse->FreeBusyView;
+	$events = getEvents($response);
 	$filename = $datadir . $item['mail'] . '.json';
-	file_put_contents($filename, json_encode($data, JSON_PRETTY_PRINT));
+	file_put_contents($filename, json_encode($events, JSON_PRETTY_PRINT));
 
 }
 

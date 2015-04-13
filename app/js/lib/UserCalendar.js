@@ -31,13 +31,22 @@ define(function(require, exports, module) {
 		// console.log("Parsed end", data.EndTime, this.end.format('lll'));
 	};
 
-	Event.prototype.getStr = function() {
+	Event.prototype.getStr = function(type) {
 
 		var str = '<p>';
-		console.log("get string of this event", this);
+		// console.log("get string of this event", this);
 
-		str += this.start.format('HH:mm') + '-' + 
-			this.end.format('HH:mm') + ' ';
+		if (type === 'season') {
+			str += this.start.format('Do MMMM') + ' - ' + 
+				this.end.clone().subtract(5, 'minutes').format('Do MMMM') + ' ';
+
+		} else {
+			str += this.start.format('HH:mm') + '-' + 
+				this.end.format('HH:mm') + ' ';
+
+		}
+
+
 		if (this.data.CalendarEventDetails && this.data.CalendarEventDetails.Subject) {
 			str += escapeHTML(this.data.CalendarEventDetails.Subject);
 		}
@@ -97,9 +106,9 @@ define(function(require, exports, module) {
 		// 	console.log("Calendar data type not reckognized", this.user.name);
 		// }
 
-		if (this.cal.CalendarEventArray && this.cal.CalendarEventArray.CalendarEvent) {
-			for(var i = 0; i < this.cal.CalendarEventArray.CalendarEvent.length; i++) {
-				this.events.push(new Event(this.cal.CalendarEventArray.CalendarEvent[i]));
+		if (this.cal) {
+			for(var i = 0; i < this.cal.length; i++) {
+				this.events.push(new Event(this.cal[i]));
 			}
 		} else {
 			console.log("Could not find calendar event array for " + this.user.name);
@@ -126,15 +135,15 @@ define(function(require, exports, module) {
 		return 'Error';
 	};
 
-	UserCalendar.prototype.getPopover = function(period, periodend) {
+	UserCalendar.prototype.getPopover = function(period, periodend, type) {
 
 		var str = '';
-		console.log("Get popover for period ", period.format('lll'), periodend.format('lll'));
+		// console.log("Get popover for period ", period.format('lll'), periodend.format('lll'));
 		var res = this.checkPeriod(period, periodend);
 		if (res === null) return 'Ingen hendelser';
 
 		for(var i = 0; i < res.length; i++) {
-			str += '<p>' + res[i].getStr() + '</p>';
+			str += '<p>' + res[i].getStr(type) + '</p>';
 		}
 		return str;
 

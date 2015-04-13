@@ -4,16 +4,27 @@ define(function(require, exports, module) {
 	var moment = require('moment');
 	require('momentl');
 
-	var WeekSelector = function() {
+	var WeekSelector = function(container) {
 		var that = this;
 		this.max = 7;
 		this.index = 0;
+
+		var day = moment().weekday();
+		// console.error("Day now is ", day);
+
+		if (day >= 6) {
+			this.index = 1;
+		} else if (day === 5 && moment().hour() >= 14) {
+			this.index = 1;
+		}
+
+		this.container = container;
 
 		this.periodCache = {};
 
 		this.callback = null;
 
-		this.datebox = $("#datebox");
+		this.datebox = this.container.find(".datebox").eq(0);
 		this.thisWeek = moment().startOf('week');		
 		this.display();
 
@@ -97,9 +108,9 @@ define(function(require, exports, module) {
 
 
 		}
-
-		$("#weeknow").empty().append(
-			'<div class="week">Uke ' + p.format('W') + '</div>'
+		this.container.find(".weeknow").eq(0).empty().append(
+			// '<span class="week">Uke ' + p.format('W') + '</span>'
+			'<button class="btn btn-primary disabled" type="submit">Uke ' + p.format('W') + '</button>'
 			// '<div class="days">' + p.format('dddd LL') + ' til ' + 
 			// 	p.add(4, 'days').format('dddd LL') + '</div>'
 			);

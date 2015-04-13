@@ -1,0 +1,74 @@
+
+
+
+{#week}
+<div id="allContent" class="container gutter panefreebusy">
+{/week}
+{#season}
+<div id="allContent" class="container-fluid gutter panevacation">
+{/season}
+
+	<div id="mainOuterRow" class="row">
+
+		<div  id="groupselector" class="groupselector list-group col-sm-3"></div>
+		<div id="mainOuter" class="col-sm-9">
+
+
+			{#week}
+			<div id="updateTimer" class="pull-right" style="color: #aaa"></div>
+			{/week}
+			
+			<div class="datebox  ">
+				
+				{#week}
+				<div class="row ">
+					<div id="weekdisplay" class="col-sm-9">
+						<button class="btn btn-default prevWeek" type="submit">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						Forrige</button>
+						<button class="btn btn-default thisWeek" type="submit">
+							Denne uken</button>
+						<div class="weeknow" style="display: inline"></div>
+
+						<button class="btn btn-default nextWeek" type="submit">Neste
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</button>
+
+					</div>
+					<div class="col-sm-3 "></div>
+				</div>
+				{/week}
+
+				{#season}
+				<div class="row ">
+					<div id="weekdisplay" class="col-sm-12">
+						<ul id="seasonpicker" class="nav nav-tabs">
+						  <li class="pick1" role="presentation"><a href="#">Vår</a></li>
+						  <li class="pick2 active" role="presentation"><a href="#">Sommer</a></li>
+						  <li class="pick3" role="presentation"><a href="#">Høst</a></li>
+						</ul>
+					</div>
+
+				</div>
+				{/season}
+
+
+			</div>
+
+			<table class="table table-condensed" style="">
+				<thead class="mainheader" id="mainheader"></thead>
+				<tbody class="mainview" id="mainview"></tbody>
+			</table>
+
+
+
+		</div>
+	</div>
+
+</div>
+<!-- /container --> 
+
+
+
+
+

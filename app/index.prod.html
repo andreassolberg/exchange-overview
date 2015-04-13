@@ -7,32 +7,28 @@
 	<meta name="description" content="">
 	<meta name="author" content="Andreas Åkre Solberg">
 
-	<title>UNINETT Kalender</title>
+	<title>Developer Dashboard – Feide Connect</title>
 
 	<link href="bower_components/uninett-theme/ico/favicon.png" rel="shortcut icon" />
 
-
-
-
-	<!-- Application: Javascript and CSS loaded from developerment files -->
-	<link href="css/style.css" rel="stylesheet"/>
-	<script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+	<!-- Application: Javascript and CSS loaded from distribution build -->
+	<link href="dist/app.min.css" rel="stylesheet"/>
+	<script src="dist/app.min.js"></script>
 	<script type="text/javascript">
-		require.config({
-		    urlArgs: "bust=v2.0.3"
-		});
+		require('main');
 	</script>
-
 	<!--  o __ o __ o __ o __ o __ o __ o __ o __ o __ o __ o __ o __ o -->
 
 </head>
 
 <body>
 
-	<div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">	
+	<div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		
 	</div>
 
-	<div class=" " style="">
+
+	<div class="container">
 
 		<div id="debug" style="font-size: 70%"></div>
 
@@ -40,7 +36,10 @@
 		<div id="panecontainer"></div>
 
 	</div>
+	<!-- /container --> 
 
+	<div id="footer" class="row gutter">
+	</div>
 
 
 
